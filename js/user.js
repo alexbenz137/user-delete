@@ -113,24 +113,82 @@ const usersArray = [
 
 //obtener el body de la tabla
 const tableBody = document.getElementById('table-body')
+const searchInput = document.querySelector('#search')
 
-console.log(tableBody)
-//iterar el array y agregar un tr por cada alumno que tengamos
+//Escuchar cuando el usuario presiona una telca en el input search
+    searchInput.addEventListener('keyup', (eventito) => {
 
-usersArray.forEach(user => {
+    
+//obtener el valor del imput
+    const inputValue = eventito.target.value.toLowerCase()
+//buscar en todos los usuarios aquellos donde su nombre tenga este texto
+    
+        const usuariosFiltrados = usersArray.filter(usuario => {
 
-    tableBody.innerHTML += `
-    <tr class="table-body">
-                <td class="user-image">
-                    <img src="${user.image}" alt="${user.fullname}">
-                </td>
-                <td class="user-name">${user.fullname}</td>
-                <td class="user-email">${user.email}</td>
-                <td class="user-location">${user.location}</td>
-                <td class="user-age">${user.age}</td>
-                <td class="user-date">${formatDate (user.bornDate) }</td>
-    </tr>`
+        const nombre= usuario.fullname.toLowerCase()
+
+        if(nombre.includes(inputValue)) {
+            return true
+        } return false
+    })
+
+    // const usuariosFiltrados = usersArray.filter((usuario) => usuario.nombre.toLowerCase().includes (inputValue)) //TAMBIEN ES VALIDO, MÁS CORTO
+    
+
+
+//pintar solo los usuarios que hayan coincidido
+    pintarUsuarios(usuariosFiltrados)    
+    console.log (usuariosFiltrados)
+
+
 })
+
+
+
+
+
+
+function pintarUsuarios (arrayPintar) {
+//iterar el array y agregar un tr por cada alumno que tengamos
+    tableBody.innerHTML= '';
+    
+    arrayPintar.forEach( (user, indiceActual) => {
+
+        tableBody.innerHTML += `
+        <tr class="table-body">
+                    <td class="user-image">
+                        <img src="${user.image}" alt="${user.fullname}">
+                    </td>
+                    <td class="user-name">${user.fullname}</td>
+                    <td class="user-email">${user.email}</td>
+                    <td class="user-location">${user.location}</td>
+                    <td class="user-age">${user.age}</td>
+    
+                    <td class="user-date">${formatDate (user.bornDate) }</td>
+    
+                    <td>
+    
+                    <button class= "action-btn btn-danger"
+                    title= "BORRAR PRODUCTO"
+                    onclick="borrarUsuario(${indiceActual})"
+                    >
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+    
+                    </tr>`
+    })
+}
+
+pintarUsuarios(usersArray)
+
+///////////borrarUsuario()///////////
+function borrarUsuario(indice) {
+
+    usersArray.splice(indice,1)
+    pintarUsuarios(usersArray)
+    console.log (usersArray)
+}
+
 
 //⏬⏬⏬
 
@@ -144,19 +202,8 @@ function formatDate(fecha) {
     })
     const fechaFormateada = collator.format(fecha)
 
-    console.log(fechaFormateada)
+    // console.log(fechaFormateada)
     //Devolver una fecha en formato correcto
     return fechaFormateada // ⏫⏫⏫⏫⏫
 }
 
-
-
-/* <tr class="table-body">
-                <td class="user-image">
-                    <img src="https://m.media-amazon.com/images/I/81wNRtDaTXL.png" alt="imagen de prueba">
-                </td>
-                <td class="user-name">SONIC HEROES</td>
-                <td class="user-email">SONIC@GMAIL.COM</td>
-                <td class="user-location">SUPER MARIO WORLD</td>
-                <td class="user-age">24</td>
-                <td class="user-date">248/05/1998</td> */
