@@ -133,19 +133,22 @@ userForm.addEventListener("submit", (evt) => {
         return;
     }
 
-    //! email ya existe
-    // const emailExist = usersArray.find((user) => {
+    // ! email ya existe
+    const emailExist = usersArray.find((user) => {
 
-    //     if (user.email === el.email.value) {
-    //         return true
-    //     }
+        if (user.email === el.email.value) {
+            return true
+        }
 
-    // })
+    })
 
-    // if (emailExist) {
-    //     alert(`El correo ya se encuentra registrado`)
-    //     return
-    // }
+    if (emailExist && !el.id.value !== emailExist.id) {
+        Swal.fire ({
+            title: 'El correo ya existe',
+            icon: 'error',
+        })
+        return
+    }
 
     //ESTO ES LO MISMO QUE DE ABAJO PERO MAS LARGO
     // let id
@@ -196,7 +199,8 @@ userForm.addEventListener("submit", (evt) => {
             title: 'usuario Editado',
             text: 'El usuario fue editado exitosamente',
             icon: 'success',
-            timer: 1000})
+            timer: 1000
+        })
 //al modificiar el array necesito refresacar la vista
 
     }else {
@@ -279,8 +283,8 @@ function pintarUsuarios(arrayPintar) {
                     <td>
     
                     <button class= "action-btn btn-danger"
-                    title= "BORRAR PRODUCTO"
-                    onclick="borrarUsuario(${indiceActual})"
+                    title= "BORRAR USUARIO"
+                    onclick="borrarUsuario('${user.id}', '${fullname}')"
                     >
                         <i class="fa-solid fa-trash"></i>
                     </button>
@@ -297,15 +301,25 @@ function pintarUsuarios(arrayPintar) {
     })
 }
 
+//Llamo por primera vez que se ejectua mi scrpit la funcion pintar usuarios
 pintarUsuarios(usersArray)
 
-///////////borrarUsuario()///////////
-function borrarUsuario(indice) {
+
+function borrarUsuario (Id, nombre) {
+    const confirmDelete = confirm ( `Realmente desea borrar este usuario ${nombre}`)
+
+if(confirmDelete) {
+
+    const indice = usersArray.findIndex(user => user.id === Id)
 
     usersArray.splice(indice, 1)
     pintarUsuarios(usersArray)
-    console.log(usersArray)
+
 }
+}
+
+
+
 
 function editarUsuario(idBuscar) {
     //buscar un usuario y obtenerlo
