@@ -14,6 +14,59 @@
     <div class="input-container">
         <input type="text" class="input" id="search" placeholder="BUSCAR POR NOMBRE">
     </div>
+    
+    <form id="user-form">
+
+        <input type="hidden" name="id">
+
+        <div class="input-group">
+            <label for="fullname">Nombre Completo</label>
+            <input type="text" name="nombreCompleto" id="fullname" >
+        </div>
+        
+        <div class="input-group">
+            <label for="password">CONTRASEÑA</label>
+            <input type="password" name="contraseña" id="password" >
+        </div>
+
+        <div class="input-group">
+            <label for="password">REPETIR CONTRASEÑA</label>
+            <input type="password" name="contraseña2" id="password2" >
+        </div>
+
+
+        <div class="input-group">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email">
+        </div>
+        <div class="input-group">Locación
+            <select name="location" >
+                <option value="Buenos Aires">Buenos Aires</option>
+                <option value="Mendoza">Mendoza</option>
+                <option value="San Luis">San Luis</option>
+                <option value="Córdoba">Córdoba</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <label for="age">Edad</label>
+            <input type="number" name="age" id="age">
+        </div>
+        <div class="input-group">
+            <label for="bornDate">Fecha Nacimiento</label>
+            <input type="date" name="bornDate" id="bornDate">
+        </div>
+        <div class="input-group">
+            <label for="image">Url de la imagen</label>
+            <input type="url" name="image" id="image">
+        </div>
+        <!-- #checkbox -->
+        <div class="mb">
+            <label for="active">Activo</label>
+            <input type="checkbox" name="active" id="active">
+        </div>
+        <button type="submit" class="btn-form">Agregar usuario</button>
+
+    </form>
 
     <table class="user-table">
         <thead>
@@ -41,7 +94,9 @@
         </tbody>
     </table>
 
-    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script src="/js/format.date.js"></script>
     <script src="/js/user.js"></script>
 </body>
 </html>
