@@ -11,6 +11,34 @@ body {
     color: rgba(255, 255, 255, 0.603);
 }
 
+.header {
+    display: flex;
+    justify-content: space-between;
+    background-color: dodgerblue;
+    color: white;
+}
+
+.header a {
+    color: white;
+    text-decoration: none;
+    padding: 1rem 1.25rem;
+    display: inline-block;
+    &:hover {
+        background-color: aqua;
+    }
+}
+    
+.user-info {
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.25rem
+}
+
+.nav {
+    padding: 1rem;
+    
+}
+
 .user-table {
     width: 100%;
     border-collapse: collapse;
