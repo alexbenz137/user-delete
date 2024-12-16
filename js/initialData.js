@@ -2,13 +2,15 @@ const usersStart = [
     {
         fullname: 'John Doe',
         age: 30,
-        email: 'john.doe@example.com',
+        email: 'admin@admin.com',
         id: '1',
         active: true,
-        password: 'password123',
+        password: 'admin',
         bornDate: new Date('1993-01-01').getTime(),
         location: 'New York, NY',
-        image: 'https://oyster.ignimgs.com/mediawiki/apis.ign.com/mario-kart-for-wii-u/7/71/Mk8iconyoshi.png?width=1280'
+        image: 'https://oyster.ignimgs.com/mediawiki/apis.ign.com/mario-kart-for-wii-u/7/71/Mk8iconyoshi.png?width=1280' ,
+        role: 'ADMIN_ROLE' ,
+        resetPassword: true , 
     },
     {
         fullname: 'Jane Doe',
@@ -19,14 +21,15 @@ const usersStart = [
         password: 'password456',
         bornDate: new Date('1998-05-05').getTime(),
         location: 'Los Angeles, CA',
-        image: 'https://oyster.ignimgs.com/mediawiki/apis.ign.com/mario-kart-for-wii-u/f/f5/Mk8icondaisy.png?width=1280'
+        image: 'https://oyster.ignimgs.com/mediawiki/apis.ign.com/mario-kart-for-wii-u/f/f5/Mk8icondaisy.png?width=1280' ,
+        role: 'CLIENT_ROLE'
     },
     {
         fullname: 'Alice Johnson',
         age: 35,
         email: 'alice.johnson@example.com',
         id: '3',
-        active: true,
+        active: false,
         password: 'password789',
         bornDate: new Date('1988-08-08').getTime(),
         location: 'Miami, FL',
@@ -48,7 +51,7 @@ const usersStart = [
         age: 28,
         email: 'emily.johnson@example.com',
         id: '5',
-        active: true,
+        active: false,
         password: 'password202',
         bornDate: new Date('1995-02-15').getTime(),
         location: 'Houston, TX',
@@ -70,7 +73,7 @@ const usersStart = [
         age: 22,
         email: 'samantha.davis@example.com',
         id: '7',
-        active: true,
+        active: false,
         password: 'password404',
         bornDate: new Date('2001-11-11').getTime(),
         location: 'Boston, MA',
@@ -92,7 +95,7 @@ const usersStart = [
         age: 29,
         email: 'isabella.taylor@example.com',
         id: '9',
-        active: true,
+        active: false,
         password: 'password606',
         bornDate: new Date('1994-06-24').getTime(),
         location: 'San Diego, CA',
@@ -111,13 +114,9 @@ const usersStart = [
     }
 ];
 
-// 1:30:00 (clase 35) 1- 
-// const usersArray = JSON.parse (localStorage.getItem("users"))
-
-//1:35:00 (clase 35) 2-
 if (localStorage.getItem("users") === null ) {
 
-    localStorage.setItem("users", JSON.stringify (usersStart))
+    localStorage.setItem("users", JSON.stringify(usersStart))
 }
 
 const productStart = []

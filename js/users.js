@@ -1,7 +1,4 @@
-const usersArray = JSON.parse(localStorage.getItem("users" ))
-
-
-
+const usersArray = JSON.parse(localStorage.getItem("users"))
 
 
 //obtener el body de la tabla

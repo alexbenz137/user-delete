@@ -14,19 +14,19 @@ HACER EL LOGIN
 */
 
 
-const users = JSON.parse (localStorage.getItem("users")) || []
+const users = JSON.parse(localStorage.getItem("users")) || [];
 
 const loginForm = document.getElementById("login-form") 
 
-loginForm.addEventListener("submit" , (evt) => {
-    evt.preventDefault
+loginForm.addEventListener("submit", (evt) => {
+    evt.preventDefault()
 
-    const email = loginForm.nextElementSibling.email.value
-    const password = evt.target.elements.password.value
+    const email = loginForm.elements.email.value;
+    const password = loginForm.elements.password.value;
 
-    const user = users.find ((usr) => {
-
-        if(usr.email.toLowerCase === email.toLowerCase ()) {
+    const user = users.find((usr) => {
+        
+        if(usr.email.toLowerCase() === email.toLowerCase()) {
             return true
         }
 
@@ -37,26 +37,24 @@ loginForm.addEventListener("submit" , (evt) => {
         Swal.fire({
             icon: 'error' , 
             title: 'Login Incorrecto',
-            text: 'Alguno de los datos no es correcto',
+            text: 'Alguno de los datos ingresados no es correcto',
             timer: 2000
         })
-
         return
     }
 
-    delete user.password
-    localStorage.setItem("currentUser", JSON.stringify (user))
+    delete user.password;
 
-    Swal.fire ({
-        icon: 'success' ,
+    localStorage.setItem("currentUser", JSON.stringify(user))
+
+
+    Swal.fire({
+        icon: 'success',
         title: 'Login Correcto',
         text: 'Será redireccionado en un momento'
-        
     })
 
-    console.log ('Iniciando timeout')
-
-    setTimeout(function() {
+        setTimeout(function(){
 
         window.location.href = '/index.html'
     },
