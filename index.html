@@ -4,99 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/css/styles.css">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
 
-    <link rel="stylesheet" href="/css/styles.css">
+
 </head>
 <body>
+    <header class="header">
+        <nav class="nav" id="header-nav">
+            <a class="header-link" href="/index.html">INICIO</a>
+            <a class="header-link" href="/pages/contact.html">CONTACTO</a>
+            <a class="header-link" href="/pages/acerca/acerca.html">ACERCA</a>
+            </nav>
+
+            <div class="user-info" id="header-user">
+
+                <div class="user-name">USER</div>
+                <div class="user-action"></div>
+
+            </div>
+    </header>
+
+
+    <a href="login/login.html">LOGIN</a>
     <h1>PRINCIPAL</h1>
 
-    <div class="input-container">
-        <input type="text" class="input" id="search" placeholder="BUSCAR POR NOMBRE">
-    </div>
-    
-    <form id="user-form">
+    <a href="/pages/admin/user-admin.html">ADMINISTRAR USUARIOS</a>
 
-        <input type="hidden" name="id">
-
-        <div class="input-group">
-            <label for="fullname">Nombre Completo</label>
-            <input type="text" name="nombreCompleto" id="fullname" >
-        </div>
-        
-        <div class="input-group">
-            <label for="password">CONTRASEÑA</label>
-            <input type="password" name="contraseña" id="password" >
-        </div>
-
-        <div class="input-group">
-            <label for="password">REPETIR CONTRASEÑA</label>
-            <input type="password" name="contraseña2" id="password2" >
-        </div>
+    <script src="/js/initialData.js"></script>
+    <script src="/js/header.js"></script>
 
 
-        <div class="input-group">
-            <label for="email">Email</label>
-            <input type="email" name="email" id="email">
-        </div>
-        <div class="input-group">Locación
-            <select name="location" >
-                <option value="Buenos Aires">Buenos Aires</option>
-                <option value="Mendoza">Mendoza</option>
-                <option value="San Luis">San Luis</option>
-                <option value="Córdoba">Córdoba</option>
-            </select>
-        </div>
-        <div class="input-group">
-            <label for="age">Edad</label>
-            <input type="number" name="age" id="age">
-        </div>
-        <div class="input-group">
-            <label for="bornDate">Fecha Nacimiento</label>
-            <input type="date" name="bornDate" id="bornDate">
-        </div>
-        <div class="input-group">
-            <label for="image">Url de la imagen</label>
-            <input type="url" name="image" id="image">
-        </div>
-        <!-- #checkbox -->
-        <div class="mb">
-            <label for="active">Activo</label>
-            <input type="checkbox" name="active" id="active">
-        </div>
-        <button type="submit" class="btn-form">Agregar usuario</button>
-
-    </form>
-
-    <table class="user-table">
-        <thead>
-            <tr class="table-head">
-                <th>Avatar</th>
-                <th>Nombre Completo</th>
-                <th>Email</th>
-                <th>Localidad</th>
-                <th>Edad</th>
-                <th>Fecha de nacimiento</th>
-                <th>ACCIONES</th>
-            </tr>
-        </thead>
-        <tbody id="table-body">
-            <tr class="table-body">
-                <td class="user-image">
-                    
-                </td>
-                <td class="user-name"></td>
-                <td class="user-email"></td>
-                <td class="user-location"></td>
-                <td class="user-age"></td>
-                <td class="user-date"></td>
-            </tr>
-        </tbody>
-    </table>
-
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-    <script src="/js/format.date.js"></script>
-    <script src="/js/user.js"></script>
-</body>
 </html>
